@@ -4,150 +4,27 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
   <meta name="theme-color" content="#05070a" />
+  <meta name="description" content="Il Fantacali — rose, migliori acquisti, record dell'asta e calendario." />
   <title>Il Fantacali</title>
-  <style>
-    :root{
-      --bg:#05070a;
-      --white:#f7f3ea;
-      --green:#159447;
-      --red:#d72c32;
-      --gold:#f2b94b;
-    }
-    *{box-sizing:border-box}
-    html,body{margin:0;min-height:100%;background:var(--bg);font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;color:var(--white)}
-    body{overflow:hidden}
-    button{font:inherit}
-    .app{
-      position:fixed; inset:0; overflow:hidden;
-      background:
-        radial-gradient(circle at 50% 110%, rgba(18,86,49,.32), transparent 38%),
-        radial-gradient(circle at 50% 0%, rgba(41,74,125,.22), transparent 42%),
-        #05070a;
-    }
-    .grain{
-      position:absolute; inset:-20%; pointer-events:none; opacity:.12;
-      background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 160 160' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.35'/%3E%3C/svg%3E");
-      animation:grain 8s steps(10) infinite;
-    }
-    @keyframes grain{
-      0%,100%{transform:translate(0,0)}
-      20%{transform:translate(-3%,2%)}
-      40%{transform:translate(2%,-3%)}
-      60%{transform:translate(3%,3%)}
-      80%{transform:translate(-2%,-2%)}
-    }
-
-    .start{
-      position:absolute; inset:0; z-index:20;
-      display:grid; place-items:center; padding:24px;
-      background:linear-gradient(180deg,#030407 0%,#080c12 100%);
-      transition:opacity .8s ease, visibility .8s ease;
-    }
-    .start.hidden{opacity:0;visibility:hidden}
-    .start-card{text-align:center;max-width:520px}
-    .mini-crown{font-size:44px;filter:drop-shadow(0 0 18px rgba(242,185,75,.35))}
-    .start h1{margin:10px 0 8px;font-size:clamp(30px,8vw,54px);letter-spacing:.06em}
-    .start p{margin:0 0 26px;color:#c9cbd0;font-size:16px;line-height:1.45}
-    .enter{
-      border:1px solid rgba(255,255,255,.22);
-      background:rgba(255,255,255,.08);
-      color:white; padding:14px 22px; border-radius:999px;
-      box-shadow:0 10px 40px rgba(0,0,0,.35);
-      backdrop-filter:blur(8px);
-      cursor:pointer;
-    }
-
-    .intro{
-      position:absolute; inset:0; z-index:10;
-      display:grid; place-items:center; text-align:center; padding:28px;
-      opacity:0; pointer-events:none;
-    }
-    .intro.show{opacity:1}
-    .crown{
-      font-size:56px; opacity:0; transform:translateY(10px) scale(.8);
-      text-shadow:0 0 26px rgba(242,185,75,.28);
-    }
-    .brand{
-      margin-top:10px; font-weight:900; letter-spacing:.06em;
-      font-size:clamp(36px,10vw,72px); opacity:0; transform:translateY(16px);
-    }
-    .tricolor{
-      width:min(72vw,340px); height:5px; border-radius:99px; margin:16px auto 0;
-      background:linear-gradient(90deg,var(--green) 0 33.33%,#fff 33.33% 66.66%,var(--red) 66.66%);
-      opacity:0; transform:scaleX(.2);
-    }
-    .tagline{
-      margin-top:26px; color:#e6e2d8; font-size:clamp(19px,5vw,30px);
-      font-weight:650; opacity:0; transform:translateY(12px);
-    }
-
-    .intro.animate .crown{animation:rise .75s .1s forwards cubic-bezier(.2,.8,.2,1)}
-    .intro.animate .brand{animation:rise .8s .55s forwards cubic-bezier(.2,.8,.2,1)}
-    .intro.animate .tricolor{animation:line .75s 1.05s forwards ease}
-    .intro.animate .tagline{animation:rise .75s 1.35s forwards ease}
-    @keyframes rise{to{opacity:1;transform:none}}
-    @keyframes line{to{opacity:1;transform:scaleX(1)}}
-
-    .reveal{
-      position:absolute; inset:0; z-index:5;
-      opacity:0; transform:scale(1.035);
-      transition:opacity 1.2s ease, transform 1.6s cubic-bezier(.2,.75,.2,1);
-      background:#000;
-    }
-    .reveal.show{opacity:1;transform:scale(1)}
-    .reveal img{
-      width:100%; height:100%; object-fit:contain; display:block;
-      background:#000;
-    }
-    .flash{
-      position:absolute; inset:0; z-index:8; pointer-events:none; opacity:0;
-      background:
-        radial-gradient(circle at 12% 14%, rgba(255,255,255,.95), transparent 8%),
-        radial-gradient(circle at 88% 16%, rgba(255,255,255,.85), transparent 9%);
-      mix-blend-mode:screen;
-    }
-    .flash.go{animation:flash 1s ease}
-    @keyframes flash{
-      0%{opacity:0}
-      16%{opacity:.95}
-      35%{opacity:.18}
-      52%{opacity:.7}
-      100%{opacity:0}
-    }
-
-    .particle{
-      position:absolute; top:-20px; width:8px; height:18px; border-radius:2px;
-      z-index:9; pointer-events:none; animation:fall linear forwards;
-    }
-    @keyframes fall{
-      to{transform:translate3d(var(--drift),110vh,0) rotate(760deg);opacity:.15}
-    }
-    .hint{
-      position:absolute; left:0; right:0; bottom:max(14px,env(safe-area-inset-bottom));
-      z-index:11; text-align:center; font-size:12px; color:rgba(255,255,255,.6);
-      opacity:0; transition:opacity .8s ease;
-    }
-    .hint.show{opacity:1}
-    @media (prefers-reduced-motion:reduce){
-      *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
-    }
-  </style>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <main class="app" id="app">
-    <div class="grain"></div>
+    <div class="stadium-bg" aria-hidden="true"></div>
+    <div class="grain" aria-hidden="true"></div>
 
-    <section class="start" id="start">
+    <section class="screen start is-active" id="startScreen" aria-label="Ingresso">
       <div class="start-card">
-        <div class="mini-crown">♛</div>
+        <div class="mini-crown" aria-hidden="true">♛</div>
+        <p class="eyebrow">STAGIONE 2026/27</p>
         <h1>IL FANTACALI</h1>
-        <p>Una nuova stagione, la solita voglia di prenderci in giro.</p>
-        <button class="enter" id="enter">Entra nello stadio</button>
+        <p class="start-copy">Una nuova stagione, la solita voglia di prenderci in giro.</p>
+        <button class="pill-button" id="enterButton">Entra nello stadio</button>
       </div>
     </section>
 
-    <section class="intro" id="intro" aria-hidden="true">
-      <div>
+    <section class="screen intro" id="introScreen" aria-hidden="true">
+      <div class="intro-inner">
         <div class="crown">♛</div>
         <div class="brand">IL FANTACALI</div>
         <div class="tricolor"></div>
@@ -155,83 +32,80 @@
       </div>
     </section>
 
-    <section class="reveal" id="reveal">
-      <img src="fantacali.png" alt="Il Fantacali — Che vinca il migliore. Speriamo di beccarci pure il prossimo anno." />
+    <section class="screen hub" id="hubScreen" aria-label="Menu principale">
+      <header class="hub-header">
+        <div>
+          <p class="eyebrow">IL FANTACALI</p>
+          <h2>Scegli la tua tribuna.</h2>
+          <p>Tutto quello che serve per iniziare la stagione.</p>
+        </div>
+        <div class="hub-badge">8 SQUADRE · 200 GIOCATORI</div>
+      </header>
+      <div class="menu-grid" id="menuGrid">
+        <button class="menu-card" data-section="calendar">
+          <span class="menu-icon">▦</span><span class="menu-kicker">PARTITE</span>
+          <strong>Calendario</strong><span>Giornate e scontri della stagione.</span>
+        </button>
+        <button class="menu-card menu-card--featured" data-section="walkouts">
+          <span class="menu-icon">★</span><span class="menu-kicker">ASTA</span>
+          <strong>Migliori Acquisti</strong><span>Il colpo più costoso di ogni squadra.</span>
+        </button>
+        <button class="menu-card" data-section="rosters">
+          <span class="menu-icon">XI</span><span class="menu-kicker">SQUADRE</span>
+          <strong>Le Rose</strong><span>Tutti i 25 giocatori, reparto per reparto.</span>
+        </button>
+        <button class="menu-card" data-section="records">
+          <span class="menu-icon">♛</span><span class="menu-kicker">NUMERI</span>
+          <strong>Record dell’Asta</strong><span>Spese folli, reparti e primati.</span>
+        </button>
+        <button class="menu-card menu-card--final" data-section="finale">
+          <span class="menu-icon">⚑</span><span class="menu-kicker">SI PARTE</span>
+          <strong>Il Fischio d’Inizio</strong><span>Che vinca il migliore.</span>
+        </button>
+      </div>
     </section>
 
-    <div class="flash" id="flash"></div>
-    <div class="hint" id="hint">Tocca lo schermo per rivedere l’intro</div>
+    <section class="screen section-screen" id="sectionScreen" aria-live="polite">
+      <header class="section-nav">
+        <button class="back-button" id="backButton" aria-label="Torna al menu">←</button>
+        <div class="section-heading">
+          <p class="eyebrow" id="sectionEyebrow"></p>
+          <h2 id="sectionTitle"></h2>
+          <p id="sectionSubtitle"></p>
+        </div>
+        <div class="section-mark">♛</div>
+      </header>
+      <div class="section-content" id="sectionContent"></div>
+    </section>
+
+    <section class="walkout-overlay" id="walkoutOverlay" aria-hidden="true">
+      <div class="walkout-stage">
+        <div class="walkout-lights" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+        <div class="walkout-sparks" id="walkoutSparks" aria-hidden="true"></div>
+        <button class="walkout-close" id="walkoutClose" aria-label="Chiudi Walkout">×</button>
+        <div class="walkout-pretitle">MIGLIORE ACQUISTO</div>
+        <div class="walkout-flag" id="walkoutFlag"></div>
+        <div class="walkout-role" id="walkoutRole"></div>
+        <div class="walkout-silhouette" aria-hidden="true">
+          <svg viewBox="0 0 220 400" role="presentation">
+            <circle cx="110" cy="68" r="38"></circle>
+            <path d="M73 112c17-9 57-9 74 0l30 91-27 10-12-49v91l38 126h-42l-24-93-24 93H44l38-126v-91l-12 49-27-10 30-91z"></path>
+          </svg>
+        </div>
+        <div class="walkout-card">
+          <div class="walkout-name" id="walkoutName"></div>
+          <div class="walkout-meta"><span id="walkoutTeam"></span><span class="dot">•</span><span id="walkoutOwner"></span></div>
+          <div class="walkout-price"><span id="walkoutPrice"></span><small>crediti</small></div>
+        </div>
+        <div class="walkout-skip">tocca × per tornare alle squadre</div>
+      </div>
+    </section>
+
+    <div class="flash" id="flash" aria-hidden="true"></div>
+    <div class="confetti-layer" id="confettiLayer" aria-hidden="true"></div>
   </main>
 
-<script>
-const start = document.getElementById('start');
-const intro = document.getElementById('intro');
-const reveal = document.getElementById('reveal');
-const flash = document.getElementById('flash');
-const hint = document.getElementById('hint');
-const enter = document.getElementById('enter');
-const app = document.getElementById('app');
-let running = false;
-
-const sleep = ms => new Promise(r => setTimeout(r, ms));
-
-function confetti(){
-  const colors = ['#159447','#ffffff','#d72c32'];
-  for(let i=0;i<58;i++){
-    const p = document.createElement('i');
-    p.className='particle';
-    p.style.left = Math.random()*100+'vw';
-    p.style.background = colors[i%3];
-    p.style.opacity = .75 + Math.random()*.25;
-    p.style.setProperty('--drift', ((Math.random()-.5)*180)+'px');
-    p.style.animationDuration = (3.2 + Math.random()*2.6)+'s';
-    p.style.animationDelay = (Math.random()*.35)+'s';
-    app.appendChild(p);
-    setTimeout(()=>p.remove(),6500);
-  }
-}
-
-async function play(){
-  if(running) return;
-  running = true;
-  hint.classList.remove('show');
-  reveal.classList.remove('show');
-  intro.classList.remove('show','animate');
-  await sleep(100);
-
-  intro.classList.add('show','animate');
-  await sleep(3200);
-
-  intro.style.transition='opacity .75s ease';
-  intro.style.opacity='0';
-  await sleep(700);
-
-  flash.classList.remove('go');
-  void flash.offsetWidth;
-  flash.classList.add('go');
-  reveal.classList.add('show');
-  confetti();
-
-  await sleep(1700);
-  intro.classList.remove('show','animate');
-  intro.style.opacity='';
-  intro.style.transition='';
-  await sleep(2600);
-  hint.classList.add('show');
-  running = false;
-}
-
-enter.addEventListener('click', async ()=>{
-  start.classList.add('hidden');
-  await sleep(650);
-  play();
-});
-
-app.addEventListener('click', (e)=>{
-  if(start.classList.contains('hidden') && !running && e.target !== enter){
-    play();
-  }
-});
-</script>
+  <script src="data.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>
