@@ -6,7 +6,7 @@
   <meta name="theme-color" content="#05070a" />
   <meta name="description" content="Il Fantacali — rose, migliori acquisti, record dell'asta e calendario." />
   <title>Il Fantacali</title>
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="style.css?v=3" />
 </head>
 <body>
   <main class="app" id="app">
@@ -43,24 +43,24 @@
       </header>
       <div class="menu-grid" id="menuGrid">
         <button class="menu-card" data-section="calendar">
-          <span class="menu-icon">▦</span><span class="menu-kicker">PARTITE</span>
-          <strong>Calendario</strong><span>Giornate e scontri della stagione.</span>
+          <span class="menu-index">01</span><span class="menu-icon">▦</span>
+          <span class="menu-copy"><span class="menu-kicker">PARTITE</span><strong>Calendario</strong><span>Giornate e scontri della stagione.</span></span><span class="menu-arrow">→</span>
         </button>
-        <button class="menu-card menu-card--featured" data-section="walkouts">
-          <span class="menu-icon">★</span><span class="menu-kicker">ASTA</span>
-          <strong>Migliori Acquisti</strong><span>Il colpo più costoso di ogni squadra.</span>
+        <button class="menu-card" data-section="walkouts">
+          <span class="menu-index">02</span><span class="menu-icon">★</span>
+          <span class="menu-copy"><span class="menu-kicker">ASTA</span><strong>Migliori Acquisti</strong><span>Il colpo più costoso di ogni squadra.</span></span><span class="menu-arrow">→</span>
         </button>
         <button class="menu-card" data-section="rosters">
-          <span class="menu-icon">XI</span><span class="menu-kicker">SQUADRE</span>
-          <strong>Le Rose</strong><span>Tutti i 25 giocatori, reparto per reparto.</span>
+          <span class="menu-index">03</span><span class="menu-icon">XI</span>
+          <span class="menu-copy"><span class="menu-kicker">SQUADRE</span><strong>Le Rose</strong><span>Tutti i 25 giocatori, reparto per reparto.</span></span><span class="menu-arrow">→</span>
         </button>
         <button class="menu-card" data-section="records">
-          <span class="menu-icon">♛</span><span class="menu-kicker">NUMERI</span>
-          <strong>Record dell’Asta</strong><span>Spese folli, reparti e primati.</span>
+          <span class="menu-index">04</span><span class="menu-icon">♛</span>
+          <span class="menu-copy"><span class="menu-kicker">NUMERI</span><strong>Record dell’Asta</strong><span>Spese folli, reparti e primati.</span></span><span class="menu-arrow">→</span>
         </button>
-        <button class="menu-card menu-card--final" data-section="finale">
-          <span class="menu-icon">⚑</span><span class="menu-kicker">SI PARTE</span>
-          <strong>Il Fischio d’Inizio</strong><span>Che vinca il migliore.</span>
+        <button class="menu-card" data-section="finale">
+          <span class="menu-index">05</span><span class="menu-icon">⚑</span>
+          <span class="menu-copy"><span class="menu-kicker">SI PARTE</span><strong>Il Fischio d’Inizio</strong><span>Che vinca il migliore.</span></span><span class="menu-arrow">→</span>
         </button>
       </div>
     </section>
@@ -78,6 +78,11 @@
       <div class="section-content" id="sectionContent"></div>
     </section>
 
+    <section class="screen finale-screen" id="finaleScreen" aria-label="Il Fischio d’Inizio">
+      <img src="fantacali.png" alt="Il Fantacali — Che vinca il migliore. Speriamo di beccarci pure il prossimo anno." />
+      <button class="finale-back" id="finaleBack" aria-label="Torna al menu">←</button>
+    </section>
+
     <section class="walkout-overlay" id="walkoutOverlay" aria-hidden="true">
       <div class="walkout-stage">
         <div class="walkout-lights" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
@@ -86,17 +91,22 @@
         <div class="walkout-pretitle">MIGLIORE ACQUISTO</div>
         <div class="walkout-flag" id="walkoutFlag"></div>
         <div class="walkout-role" id="walkoutRole"></div>
-        <div class="walkout-silhouette" aria-hidden="true">
-          <svg viewBox="0 0 220 400" role="presentation">
-            <circle cx="110" cy="68" r="38"></circle>
-            <path d="M73 112c17-9 57-9 74 0l30 91-27 10-12-49v91l38 126h-42l-24-93-24 93H44l38-126v-91l-12 49-27-10 30-91z"></path>
-          </svg>
+        <div class="walkout-player" id="walkoutPlayer" aria-hidden="true">
+          <div class="walkout-player-glow"></div>
+          <img id="walkoutPhoto" alt="" referrerpolicy="no-referrer" />
+          <div class="walkout-photo-fallback">
+            <svg viewBox="0 0 220 400" role="presentation">
+              <circle cx="110" cy="68" r="38"></circle>
+              <path d="M73 112c17-9 57-9 74 0l30 91-27 10-12-49v91l38 126h-42l-24-93-24 93H44l38-126v-91l-12 49-27-10 30-91z"></path>
+            </svg>
+          </div>
         </div>
         <div class="walkout-card">
           <div class="walkout-name" id="walkoutName"></div>
           <div class="walkout-meta"><span id="walkoutTeam"></span><span class="dot">•</span><span id="walkoutOwner"></span></div>
           <div class="walkout-price"><span id="walkoutPrice"></span><small>crediti</small></div>
         </div>
+        <a class="walkout-photo-credit" id="walkoutPhotoCredit" href="#" target="_blank" rel="noopener noreferrer">Foto: Wikimedia Commons</a>
         <div class="walkout-skip">tocca × per tornare alle squadre</div>
       </div>
     </section>
@@ -105,7 +115,7 @@
     <div class="confetti-layer" id="confettiLayer" aria-hidden="true"></div>
   </main>
 
-  <script src="data.js"></script>
-  <script src="script.js"></script>
+  <script src="data.js?v=3"></script>
+  <script src="script.js?v=3"></script>
 </body>
 </html>

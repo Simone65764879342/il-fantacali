@@ -8,7 +8,10 @@ const FANTACALI_DATA = {
         "player": "Nico Paz",
         "price": 106,
         "flag": "🇦🇷",
-        "role": "C"
+        "role": "C",
+        "photo": "https://commons.wikimedia.org/wiki/Special:FilePath/Nico_Paz_Como_2025_(cropped).jpg?width=700",
+        "photoPage": "https://commons.wikimedia.org/wiki/File:Nico_Paz_Como_2025_(cropped).jpg",
+        "photoCredit": "Fra Casa · CC0"
       },
       "roster": {
         "P": [
@@ -129,7 +132,10 @@ const FANTACALI_DATA = {
         "player": "Hojlund",
         "price": 146,
         "flag": "🇩🇰",
-        "role": "A"
+        "role": "A",
+        "photo": "https://commons.wikimedia.org/wiki/Special:FilePath/Rasmus_H%C3%B8jlund_emocionado.jpg?width=700",
+        "photoPage": "https://commons.wikimedia.org/wiki/File:Rasmus_H%C3%B8jlund_emocionado.jpg",
+        "photoCredit": "Locked Down Spectator · CC BY 3.0"
       },
       "roster": {
         "P": [
@@ -250,7 +256,10 @@ const FANTACALI_DATA = {
         "player": "Gonçalo Ramos",
         "price": 108,
         "flag": "🇵🇹",
-        "role": "A"
+        "role": "A",
+        "photo": "https://commons.wikimedia.org/wiki/Special:FilePath/Gon%C3%A7alo_Ramos_USMNT_v_Portugal_Mar_31_2026-32_(cropped).jpg?width=700",
+        "photoPage": "https://commons.wikimedia.org/wiki/File:Gon%C3%A7alo_Ramos_USMNT_v_Portugal_Mar_31_2026-32_(cropped).jpg",
+        "photoCredit": "Bryan Berlin · CC BY-SA 4.0"
       },
       "roster": {
         "P": [
@@ -371,7 +380,10 @@ const FANTACALI_DATA = {
         "player": "Douvikas",
         "price": 110,
         "flag": "🇬🇷",
-        "role": "A"
+        "role": "A",
+        "photo": "https://commons.wikimedia.org/wiki/Special:FilePath/Anastasios_Douvikas_1_(06-09-2022).jpg?width=700",
+        "photoPage": "https://commons.wikimedia.org/wiki/File:Anastasios_Douvikas_1_(06-09-2022).jpg",
+        "photoCredit": "Niels98 · CC BY-SA 4.0"
       },
       "roster": {
         "P": [
@@ -492,7 +504,10 @@ const FANTACALI_DATA = {
         "player": "Lautaro Martinez",
         "price": 191,
         "flag": "🇦🇷",
-        "role": "A"
+        "role": "A",
+        "photo": "https://commons.wikimedia.org/wiki/Special:FilePath/Lautaro_Martinez_2025.jpg?width=700",
+        "photoPage": "https://commons.wikimedia.org/wiki/File:Lautaro_Martinez_2025.jpg",
+        "photoCredit": "Andrea Papaccio · CC0"
       },
       "roster": {
         "P": [
@@ -613,7 +628,10 @@ const FANTACALI_DATA = {
         "player": "Kean",
         "price": 150,
         "flag": "🇮🇹",
-        "role": "A"
+        "role": "A",
+        "photo": "https://commons.wikimedia.org/wiki/Special:FilePath/FC_Zenit_Saint_Petersburg_vs._Juventus,_20_October_2021_64_-_Moise_Kean_(cropped).jpg?width=700",
+        "photoPage": "https://commons.wikimedia.org/wiki/File:FC_Zenit_Saint_Petersburg_vs._Juventus,_20_October_2021_64_-_Moise_Kean_(cropped).jpg",
+        "photoCredit": "Kirill Venediktov · CC BY-SA 3.0"
       },
       "roster": {
         "P": [
@@ -734,7 +752,10 @@ const FANTACALI_DATA = {
         "player": "Pio Esposito",
         "price": 52,
         "flag": "🇮🇹",
-        "role": "A"
+        "role": "A",
+        "photo": "https://commons.wikimedia.org/wiki/Special:FilePath/Francesco_Pio_Esposito_(cropped).jpg?width=700",
+        "photoPage": "https://commons.wikimedia.org/wiki/File:Francesco_Pio_Esposito_(cropped).jpg",
+        "photoCredit": "Ssofiabbetti · CC BY-SA 4.0"
       },
       "roster": {
         "P": [
@@ -855,7 +876,10 @@ const FANTACALI_DATA = {
         "player": "Malen",
         "price": 268,
         "flag": "🇳🇱",
-        "role": "A"
+        "role": "A",
+        "photo": "https://commons.wikimedia.org/wiki/Special:FilePath/Donyell_Malen_2021.jpg?width=700",
+        "photoPage": "https://commons.wikimedia.org/wiki/File:Donyell_Malen_2021.jpg",
+        "photoCredit": "Steffen Prößdorf · CC BY-SA 4.0"
       },
       "roster": {
         "P": [

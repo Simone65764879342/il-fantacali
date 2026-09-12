@@ -6,6 +6,8 @@ const startScreen = $('#startScreen');
 const introScreen = $('#introScreen');
 const hubScreen = $('#hubScreen');
 const sectionScreen = $('#sectionScreen');
+const finaleScreen = $('#finaleScreen');
+const finaleBack = $('#finaleBack');
 const enterButton = $('#enterButton');
 const backButton = $('#backButton');
 const sectionEyebrow = $('#sectionEyebrow');
@@ -21,9 +23,17 @@ const teams = FANTACALI_DATA.teams;
 const roleNames = { P: 'Portieri', D: 'Difensori', C: 'Centrocampisti', A: 'Attaccanti' };
 let currentSection = null;
 let introRunning = false;
+let backAction = () => showHub();
 
 function showOnly(screen) {
-  [startScreen, introScreen, hubScreen, sectionScreen].forEach(s => s.classList.toggle('is-active', s === screen));
+  [startScreen, introScreen, hubScreen, sectionScreen, finaleScreen].forEach(s => s.classList.toggle('is-active', s === screen));
+}
+
+function showHub() {
+  currentSection = null;
+  backAction = () => showHub();
+  showOnly(hubScreen);
+  hubScreen.scrollTop = 0;
 }
 
 async function playIntro() {
@@ -54,6 +64,7 @@ function esc(text) {
 }
 
 function setSection(kicker, title, subtitle) {
+  backAction = () => showHub();
   sectionEyebrow.textContent = kicker;
   sectionTitle.textContent = title;
   sectionSubtitle.textContent = subtitle;
@@ -63,6 +74,7 @@ function setSection(kicker, title, subtitle) {
 }
 
 function renderTeamGrid(mode) {
+  backAction = () => showHub();
   const grid = document.createElement('div');
   grid.className = 'team-grid';
   teams.forEach((team, index) => {
@@ -90,6 +102,7 @@ function renderTeamGrid(mode) {
 }
 
 function renderRoster(team) {
+  backAction = () => renderTeamGrid('roster');
   const wrap = document.createElement('div');
   wrap.className = 'roster-view';
   const departments = Object.keys(roleNames).map(role => `
@@ -215,12 +228,15 @@ function confetti(amount = 70) {
   }
 }
 
-function renderFinale() {
-  sectionContent.innerHTML = `
-    <div class="finale-wrap">
-      <img src="fantacali.png" alt="Il Fantacali — Che vinca il migliore. Speriamo di beccarci pure il prossimo anno." />
-      <div class="finale-caption">Che vinca il migliore · e speriamo di beccarci pure il prossimo anno.</div>
-    </div>`;
+function showFinale() {
+  currentSection = 'finale';
+  showOnly(finaleScreen);
+  finaleScreen.classList.remove('finale-enter');
+  void finaleScreen.offsetWidth;
+  finaleScreen.classList.add('finale-enter');
+  flash.classList.remove('go');
+  void flash.offsetWidth;
+  setTimeout(() => flash.classList.add('go'), 120);
   confetti(90);
 }
 
@@ -239,17 +255,13 @@ function openSection(section) {
     setSection('NUMERI', 'Record dell’Asta', 'I primati, gli all-in e le strategie più folli dell’asta.');
     renderRecords();
   } else if (section === 'finale') {
-    setSection('SI PARTE', 'Il Fischio d’Inizio', 'L’asta è finita. Da qui in poi parla il campo.');
-    renderFinale();
+    showFinale();
   }
 }
 
 $$('.menu-card').forEach(card => card.addEventListener('click', () => openSection(card.dataset.section)));
-backButton.addEventListener('click', () => {
-  currentSection = null;
-  showOnly(hubScreen);
-  hubScreen.scrollTop = 0;
-});
+backButton.addEventListener('click', () => backAction());
+finaleBack.addEventListener('click', showHub);
 
 function sparkleBurst() {
   const holder = $('#walkoutSparks');
@@ -267,6 +279,17 @@ function sparkleBurst() {
 }
 
 function openWalkout(team) {
+  const playerHolder = $('#walkoutPlayer');
+  const photo = $('#walkoutPhoto');
+  const credit = $('#walkoutPhotoCredit');
+  playerHolder.classList.remove('image-failed');
+  photo.onload = () => playerHolder.classList.remove('image-failed');
+  photo.onerror = () => playerHolder.classList.add('image-failed');
+  photo.src = team.walkout.photo || '';
+  photo.alt = team.walkout.player;
+  credit.textContent = `Foto: ${team.walkout.photoCredit || 'Wikimedia Commons'}`;
+  credit.href = team.walkout.photoPage || '#';
+
   $('#walkoutFlag').textContent = team.walkout.flag;
   $('#walkoutRole').textContent = team.walkout.role === 'C' ? 'CENTROCAMPISTA' : 'ATTACCANTE';
   $('#walkoutName').textContent = team.walkout.player;
