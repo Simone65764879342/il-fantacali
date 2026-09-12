@@ -278,6 +278,16 @@ function sparkleBurst() {
   setTimeout(() => holder.innerHTML = '', 3600);
 }
 
+
+function preloadWalkoutPhotos() {
+  teams.forEach(team => {
+    if (!team.walkout.photo) return;
+    const img = new Image();
+    img.decoding = 'async';
+    img.src = team.walkout.photo;
+  });
+}
+
 function openWalkout(team) {
   const playerHolder = $('#walkoutPlayer');
   const photo = $('#walkoutPhoto');
@@ -285,6 +295,7 @@ function openWalkout(team) {
   playerHolder.classList.remove('image-failed');
   photo.onload = () => playerHolder.classList.remove('image-failed');
   photo.onerror = () => playerHolder.classList.add('image-failed');
+  photo.removeAttribute('src');
   photo.src = team.walkout.photo || '';
   photo.alt = team.walkout.player;
   credit.textContent = `Foto: ${team.walkout.photoCredit || 'Wikimedia Commons'}`;
@@ -316,3 +327,5 @@ walkoutClose.addEventListener('click', closeWalkout);
 document.addEventListener('keydown', e => {
   if (e.key === 'Escape' && walkoutOverlay.classList.contains('is-open')) closeWalkout();
 });
+
+preloadWalkoutPhotos();

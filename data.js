@@ -9,7 +9,7 @@ const FANTACALI_DATA = {
         "price": 106,
         "flag": "🇦🇷",
         "role": "C",
-        "photo": "https://commons.wikimedia.org/wiki/Special:FilePath/Nico_Paz_Como_2025_(cropped).jpg?width=700",
+        "photo": "https://upload.wikimedia.org/wikipedia/commons/b/b5/Nico_Paz_Como_2025_%28cropped%29.jpg",
         "photoPage": "https://commons.wikimedia.org/wiki/File:Nico_Paz_Como_2025_(cropped).jpg",
         "photoCredit": "Fra Casa · CC0"
       },
@@ -133,7 +133,7 @@ const FANTACALI_DATA = {
         "price": 146,
         "flag": "🇩🇰",
         "role": "A",
-        "photo": "https://commons.wikimedia.org/wiki/Special:FilePath/Rasmus_H%C3%B8jlund_emocionado.jpg?width=700",
+        "photo": "https://upload.wikimedia.org/wikipedia/commons/b/b2/Rasmus_H%C3%B8jlund_emocionado.jpg",
         "photoPage": "https://commons.wikimedia.org/wiki/File:Rasmus_H%C3%B8jlund_emocionado.jpg",
         "photoCredit": "Locked Down Spectator · CC BY 3.0"
       },
@@ -257,7 +257,7 @@ const FANTACALI_DATA = {
         "price": 108,
         "flag": "🇵🇹",
         "role": "A",
-        "photo": "https://commons.wikimedia.org/wiki/Special:FilePath/Gon%C3%A7alo_Ramos_USMNT_v_Portugal_Mar_31_2026-32_(cropped).jpg?width=700",
+        "photo": "https://upload.wikimedia.org/wikipedia/commons/c/ce/Gon%C3%A7alo_Ramos_USMNT_v_Portugal_Mar_31_2026-32_%28cropped%29.jpg",
         "photoPage": "https://commons.wikimedia.org/wiki/File:Gon%C3%A7alo_Ramos_USMNT_v_Portugal_Mar_31_2026-32_(cropped).jpg",
         "photoCredit": "Bryan Berlin · CC BY-SA 4.0"
       },
@@ -381,8 +381,8 @@ const FANTACALI_DATA = {
         "price": 110,
         "flag": "🇬🇷",
         "role": "A",
-        "photo": "https://commons.wikimedia.org/wiki/Special:FilePath/Anastasios_Douvikas_1_(06-09-2022).jpg?width=700",
-        "photoPage": "https://commons.wikimedia.org/wiki/File:Anastasios_Douvikas_1_(06-09-2022).jpg",
+        "photo": "https://upload.wikimedia.org/wikipedia/commons/4/42/Anastasios_Douvikas_2_%2806-09-2022%29.jpg",
+        "photoPage": "https://commons.wikimedia.org/wiki/File:Anastasios_Douvikas_2_(06-09-2022).jpg",
         "photoCredit": "Niels98 · CC BY-SA 4.0"
       },
       "roster": {
@@ -505,9 +505,9 @@ const FANTACALI_DATA = {
         "price": 191,
         "flag": "🇦🇷",
         "role": "A",
-        "photo": "https://commons.wikimedia.org/wiki/Special:FilePath/Lautaro_Martinez_2025.jpg?width=700",
-        "photoPage": "https://commons.wikimedia.org/wiki/File:Lautaro_Martinez_2025.jpg",
-        "photoCredit": "Andrea Papaccio · CC0"
+        "photo": "https://upload.wikimedia.org/wikipedia/commons/5/55/ARGENTINA_VS_VENEZUELA_Lautaro_%28cropped%29.jpg",
+        "photoPage": "https://commons.wikimedia.org/wiki/File:ARGENTINA_VS_VENEZUELA_Lautaro_(cropped).jpg",
+        "photoCredit": "Agencia de Noticias ANDES · CC BY-SA 2.0"
       },
       "roster": {
         "P": [
@@ -629,9 +629,9 @@ const FANTACALI_DATA = {
         "price": 150,
         "flag": "🇮🇹",
         "role": "A",
-        "photo": "https://commons.wikimedia.org/wiki/Special:FilePath/FC_Zenit_Saint_Petersburg_vs._Juventus,_20_October_2021_64_-_Moise_Kean_(cropped).jpg?width=700",
-        "photoPage": "https://commons.wikimedia.org/wiki/File:FC_Zenit_Saint_Petersburg_vs._Juventus,_20_October_2021_64_-_Moise_Kean_(cropped).jpg",
-        "photoCredit": "Kirill Venediktov · CC BY-SA 3.0"
+        "photo": "https://upload.wikimedia.org/wikipedia/commons/4/48/Moise_Kean_25072026_%281%29.jpg",
+        "photoPage": "https://commons.wikimedia.org/wiki/File:Moise_Kean_25072026_(1).jpg",
+        "photoCredit": "Timmy96 · CC0"
       },
       "roster": {
         "P": [
@@ -753,9 +753,9 @@ const FANTACALI_DATA = {
         "price": 52,
         "flag": "🇮🇹",
         "role": "A",
-        "photo": "https://commons.wikimedia.org/wiki/Special:FilePath/Francesco_Pio_Esposito_(cropped).jpg?width=700",
-        "photoPage": "https://commons.wikimedia.org/wiki/File:Francesco_Pio_Esposito_(cropped).jpg",
-        "photoCredit": "Ssofiabbetti · CC BY-SA 4.0"
+        "photo": "https://upload.wikimedia.org/wikipedia/commons/5/51/Francesco_Pio_Esposito_a_La_Spezia_%28cropped%29.jpg",
+        "photoPage": "https://commons.wikimedia.org/wiki/File:Francesco_Pio_Esposito_a_La_Spezia_(cropped).jpg",
+        "photoCredit": "NewMicrosoikos · CC0"
       },
       "roster": {
         "P": [
@@ -877,7 +877,7 @@ const FANTACALI_DATA = {
         "price": 268,
         "flag": "🇳🇱",
         "role": "A",
-        "photo": "https://commons.wikimedia.org/wiki/Special:FilePath/Donyell_Malen_2021.jpg?width=700",
+        "photo": "https://upload.wikimedia.org/wikipedia/commons/1/1f/Donyell_Malen_2021.jpg",
         "photoPage": "https://commons.wikimedia.org/wiki/File:Donyell_Malen_2021.jpg",
         "photoCredit": "Steffen Prößdorf · CC BY-SA 4.0"
       },
